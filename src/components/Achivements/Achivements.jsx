@@ -27,6 +27,11 @@ export const Achievements = () => {
       title: "NPTEL – DBMS",
       desc: "Ranked in the Top 1 percentile nationwide in the NPTEL Database Management Systems course.",
     },
+    {
+      id: 5,
+      title: "DSA Practice",
+      desc: "Solved 700+ Data Structures and Algorithms problems across multiple platforms, strengthening problem-solving skills.",
+    },
   ];
 
   return (
