@@ -57,14 +57,14 @@ export const SkillsInfo = [
     skills: [
       { name: 'HTML', logo: htmlLogo },
       { name: 'CSS', logo: cssLogo },
-      { name: 'SASS', logo: sassLogo },
+      
       { name: 'JavaScript', logo: javascriptLogo },
       { name: 'React JS', logo: reactjsLogo },
       { name: 'Angular', logo: angularLogo },
-      { name: 'Redux', logo: reduxLogo },
+      
       { name: 'Next JS', logo: nextjsLogo },
       { name: 'Tailwind CSS', logo: tailwindcssLogo },
-      { name: 'GSAP', logo: gsapLogo },
+      
       { name: 'Material UI', logo: materialuiLogo },
       { name: 'Bootstrap', logo: bootstrapLogo },
     ],
@@ -77,18 +77,17 @@ export const SkillsInfo = [
       { name: 'Express JS', logo: expressjsLogo },
       { name: 'MySQL', logo: mysqlLogo },
       { name: 'MongoDB', logo: mongodbLogo },
-      { name: 'Firebase', logo: firebaseLogo },
+      
       { name: 'PostgreSQL', logo: postgreLogo },
     ],
   },
   {
     title: 'Languages',
     skills: [
-      { name: 'C', logo: cLogo },
-      { name: 'C++', logo: cppLogo },
+      
       { name: 'Java', logo: javaLogo },
       { name: 'Python', logo: pythonLogo },
-      { name: 'C-Sharp', logo: csharpLogo },
+      
       { name: 'JavaScript', logo: javascriptLogo },
       { name: 'TypeScript', logo: typescriptLogo },
     ],
@@ -248,3 +247,31 @@ export const SkillsInfo = [
 }
 // future add here all rhr project{}
   ];  
+  // Leadership Section
+// Leadership Section
+export const LeadershipInfo = [
+  {
+    id: 0,
+    title: "Promotion Team Lead",
+    org: "College Tech Fest",
+    desc: "Led the promotion team for the annual college fest for 2 consecutive years, driving outreach campaigns and boosting event participation.",
+  },
+  {
+    id: 1,
+    title: "Core Member",
+    org: "Entrepreneurship & Innovation Cell",
+    desc: "Organized and managed a startup expo with 500+ participants, coordinating logistics and ensuring smooth execution.",
+  },
+  {
+    id: 2,
+    title: "Design Team Lead",
+    org: "College Fest",
+    desc: "Headed the design team, creating visual assets, posters, and stage setups that enhanced the overall fest experience.",
+  },
+  {
+    id: 3,
+    title: "Freelance Video Editor",
+    org: "Independent Projects",
+    desc: "Delivered professional video editing services for multiple freelance clients, enhancing storytelling and brand impact.",
+  },
+];

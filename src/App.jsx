@@ -10,7 +10,9 @@ import { Work } from "./components/Work/Work";
 import { Contact } from "./components/Contact/Contact";
 import { Footer } from "./components/Footer/Footer";
 import { Education } from "./components/Education/Education";
+import { Leadership } from "./components/Leadership/Leadership";
 import BlurBlob from "./BlurBlob";
+import { Achievements } from "./components/Achivements/Achivements";
 
 function App() {
   return (
@@ -31,7 +33,10 @@ function App() {
         <Experience />
         <Work />
         <Education />
+        <Leadership/>
+        <Achievements/>
         <Contact />
+        
         <Footer />
       </div>
     </div>
