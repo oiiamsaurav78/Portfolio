@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { projects } from "../../constants";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Work = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -23,10 +24,12 @@ export const Work = () => {
       {/* Projects Grid */}
       <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
-          <div
+          <motion.div
             key={project.id}
             onClick={() => setSelectedProject(project)}
-            className="border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            className="border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 flex flex-col"
           >
             <img
               src={project.image}
@@ -53,69 +56,83 @@ export const Work = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      {/* Modal */}
-      {selectedProject && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50">
-          <div className="bg-gray-900 rounded-2xl p-6 w-[90%] max-w-3xl relative shadow-2xl">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl"
-            >
-              ✕
-            </button>
+      {/* Modal with Animation */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50"
+          >
+         <motion.div
+  initial={{ rotateY: 90, opacity: 0 }}
+  animate={{ rotateY: 0, opacity: 1 }}
+  exit={{ rotateY: 90, opacity: 0 }}
+  transition={{ duration: 0.5, ease: "easeInOut" }}
+  className="bg-gray-900 rounded-2xl p-6 w-[90%] max-w-3xl relative shadow-2xl"
+>
 
-            {/* Image */}
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className="w-full h-64 object-cover rounded-xl mb-4"
-            />
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl"
+              >
+                ✕
+              </button>
 
-            {/* Title + Description */}
-            <h2 className="text-2xl font-bold text-white mb-2">
-              {selectedProject.title}
-            </h2>
-            <p className="text-gray-300 mb-4">{selectedProject.description}</p>
+              {/* Image */}
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 object-cover rounded-xl mb-4"
+              />
 
-            {/* Tags inside modal too */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {selectedProject.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="bg-[#8245ec]/20 text-[#8245ec] text-xs font-medium px-3 py-1 rounded-full"
+              {/* Title + Description */}
+              <h2 className="text-2xl font-bold text-white mb-2">
+                {selectedProject.title}
+              </h2>
+              <p className="text-gray-300 mb-4">{selectedProject.description}</p>
+
+              {/* Tags inside modal */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {selectedProject.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="bg-[#8245ec]/20 text-[#8245ec] text-xs font-medium px-3 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-4">
+                <a
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm px-5 py-2 rounded-lg border border-[#8245ec] text-[#8245ec] hover:bg-[#8245ec] hover:text-white transition"
                 >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Buttons */}
-            <div className="flex gap-4">
-              <a
-                href={selectedProject.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm px-5 py-2 rounded-lg border border-[#8245ec] text-[#8245ec] hover:bg-[#8245ec] hover:text-white transition"
-              >
-                GitHub
-              </a>
-              <a
-                href={selectedProject.webapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm px-5 py-2 rounded-lg bg-[#8245ec] text-white hover:bg-[#6c32d1] transition"
-              >
-                Live Demo
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+                  GitHub
+                </a>
+                <a
+                  href={selectedProject.webapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm px-5 py-2 rounded-lg bg-[#8245ec] text-white hover:bg-[#6c32d1] transition"
+                >
+                  Live Demo
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
