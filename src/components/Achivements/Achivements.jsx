@@ -20,7 +20,7 @@ export const Achievements = () => {
     {
       id: 3,
       title: "WBJEE",
-      desc: "Achieved an impressive All India Rank of 987 in the West Bengal Joint Entrance Examination.",
+      desc: "Achieved an impressive All India Rank of 1024 in the West Bengal Joint Entrance Examination.",
     },
     {
       id: 4,
