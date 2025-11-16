@@ -2,6 +2,14 @@ import React from "react";
 
 const experiences = [
   {
+    id: 3,
+    title: "SDE Intern",
+    company: "FOG Technology (Surat • Onsite)",
+    period: "Nov 2025 – Present",
+    description:
+      "Developing a new interactive game platform using TypeScript, modern JavaScript (ES6+), and OOP principles. Collaborating closely with senior developers to architect scalable game modules, optimize rendering performance, and implement reusable, maintainable code structures. Key focus on improving gameplay logic, enhancing UI responsiveness, and delivering high-quality production-ready features.",
+  },
+  {
     id: 1,
     title: "Full Stack Developer (Part-Time)",
     company: "Iconic Design",
